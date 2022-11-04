@@ -43,7 +43,7 @@ const Card = () => {
         return (
           <div className="col-md-4" key={data.id}>
             <div className="card mt-4 shadow-sm" style={{padding: "20px", borderRadius: "8px",width: "330px"}}>
-            <img src={data.image} className="card-img-top mx-auto" alt={data.manufacture} style={{width: "270px",height: "160px"}}/>
+            <img src={data.image} className="card-img-top mx-auto" alt={data.manufacture} style={{width: "270px",height: "160px",objectFit: "cover"}}/>
             <div className="card-body p-0 mt-3">
               <h6 className="card-title" style={{fontWeight: "400"}}>{data.model} / {data.manufacture}</h6>
               <a href={() => false} className="text-weight-bold mt-3" style={{textDecoration: "none",color: "black",fontSize: "16px",fontWeight: "700"}}>Rp {harga} / hari</a>
