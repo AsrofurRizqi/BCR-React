@@ -15,19 +15,26 @@ const Card = () => {
   listCarsData.map((car) => {
     let driver = (filterparam.driver === 'true')
     let dateConversion = new Date(car.availableAt)
-    if (
-      car.available === driver &&
-      dateConversion <= new Date(filterparam.tanggal) &&
-      car.capacity >= filterparam.penumpang
+    if (car.available === driver && dateConversion <= new Date(filterparam.tanggal) && car.capacity >= filterparam.penumpang
     ){
       FilteredCars.push(car)
     }
     return car;
 })
-console.log(FilteredCars)
   useEffect(() => {
     dispatch(getAsyncData());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  if(FilteredCars.length === 0 && filterparam.button === "clicked"){
+    return(
+      <div id="cars-container"  className="container row mx-auto">
+        <div className="card mx-auto" style={{width: "18rem",backgroundColor: "#ffa1a1"}}>
+       <div className="card-body">
+         <h5 className="card-title text-center my-auto">Mobil Tidak Tersedia</h5>
+       </div>
+     </div>
+    </div>
+    )
+  }else{
   return (
     <div id="cars-container"  className="container row mx-auto">
       {
@@ -59,6 +66,7 @@ console.log(FilteredCars)
       }
     </div>
   );
+  }
 };
 
 export default Card;

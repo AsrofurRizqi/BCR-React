@@ -22,6 +22,7 @@ const onClick = (e) => {
         tanggal: tanggal,
         waktu: waktu,
         penumpang: penumpang,
+        button: "clicked",
     });
 }
   
